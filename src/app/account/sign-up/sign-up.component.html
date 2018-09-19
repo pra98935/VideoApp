@@ -12,7 +12,7 @@
               <label for="name" class="full_width">
                 Name
                 <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error  float-right">
-                  <div *ngIf="name.errors.required">
+                  <div *ngIf="name.errors?.required">
                     Name is required.
                   </div>
                 </div>
@@ -24,18 +24,28 @@
             <div class="form-group">
               <label for="email" class="full_width">
                 Email address:
-                <div *ngIf="email.invalid && (name.dirty || name.touched)" class="error  float-right">
-                  <div *ngIf="email.errors.required">
-                    Email is required.
-                  </div>
+                <div *ngIf="refEmail.touched && refEmail.errors?.required" class="error  float-right">
+                  Email is required.
+                </div>
+                <div *ngIf="refEmail.touched && refEmail.invalid && !refEmail.errors?.required" class="error  float-right">
+                  Invalid Email Id
                 </div>
               </label>
-              <input type="email" name="username" [(ngModel)]="acntModel.email" class="form-control" id="email" autocomplete="off" email="true" #email='email' required>
+              <input type="text" name="email" [(ngModel)]="acntModel.email" class="form-control" id="email" autocomplete="off" email="true" #refEmail='ngModel' required>
             </div>
             
             <div class="form-group">
-              <label for="pwd">Password:</label>
-              <input type="password" name="password" [(ngModel)]="acntModel.password" class="form-control" id="pwd">
+              <label for="pwd" class="full_width">
+                Password:
+                <div *ngIf="refPass.touched && refPass.errors?.required" class="error  float-right">
+                  Password is required.
+                </div>
+                <div *ngIf="refPass.errors?.minlength && (refPass.dirty || refPass.touched)" class="error  float-right">
+                    Password Should be Minimum 4 Char.
+                </div>
+              
+              </label>
+              <input type="password" name="password" minlength="4" [(ngModel)]="acntModel.password" class="form-control" id="pwd" #refPass='ngModel' required >
             </div>
             
             <button type="submit" class="btn btn-primary" (click)="submit()">Submit</button>
