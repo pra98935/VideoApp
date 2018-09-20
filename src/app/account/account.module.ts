@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule }    from '@angular/forms';
+import { HttpModule }    from '@angular/http';
 
 import { AccountRoutingModule } from './account-routing.module';
 import { SignInComponent } from './sign-in/sign-in.component';
@@ -8,12 +9,17 @@ import { SIgnUpComponent } from './sign-up/sign-up.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
 import { LandingComponent } from './landing/landing.component';
 
+import { AccountService } from '../services/account.service';
+
 @NgModule({
   imports: [
     CommonModule,
     AccountRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpModule
+    
   ],
-  declarations: [SignInComponent, SIgnUpComponent, ResetPasswordComponent, LandingComponent]
+  declarations: [SignInComponent, SIgnUpComponent, ResetPasswordComponent, LandingComponent],
+  providers:[AccountService]
 })
 export class AccountModule { }
