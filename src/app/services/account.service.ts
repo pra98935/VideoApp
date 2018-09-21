@@ -29,4 +29,13 @@ export class AccountService {
     .catch(this.handleError);
   }
 
+  userLogin(data):Observable<object>{
+    let body = data;
+    return this.http.post('http://prashant.imdev.xyz/administrator/genral_apis/customer_apis.php', body)
+    .map(Response=>{
+      return Response.json();
+    })
+    .catch(this.handleError);
+  }
+
 }

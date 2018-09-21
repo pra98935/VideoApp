@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: 'account',
     loadChildren:'../app/account/account.module#AccountModule' 
+  },
+  {
+    path: 'home',
+    loadChildren:'../app/home/home.module#HomeModule' 
   }
 ];
 

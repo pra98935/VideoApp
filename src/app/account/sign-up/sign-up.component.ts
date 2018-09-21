@@ -11,6 +11,8 @@ export class SIgnUpComponent implements OnInit {
 
   acntModel:accountModel = new accountModel();
   responseObject;
+  status:number;
+  message:string;
 
   constructor(private AccountService1 : AccountService) { }
 
@@ -26,7 +28,7 @@ export class SIgnUpComponent implements OnInit {
     let getData = this.acntModel;
 
     let person = new Object();
-    let data = {
+    let data = [{
         method:'addUsers',
         name:getData.name,
         email_id:getData.email,
@@ -36,11 +38,16 @@ export class SIgnUpComponent implements OnInit {
         location:'Indore',
         latitude:'00.000',
         longitude:'00.000'
-    }
-    alert('out');
+    }]
+    
     this.AccountService1.userRegistration(data).subscribe(function(response){
-      alert('in');
-      console.log(response);
+      self.responseObject = response;
+      console.log(self.responseObject);
+      self.status=self.responseObject.status;
+      self.message=self.responseObject.message;
+
+      console.log(self.status);
+      console.log(self.message);
     });
   }
 

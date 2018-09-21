@@ -14,12 +14,12 @@
               Email address:
               
             </label>
-            <input type="email" name="email" [(ngModel)]="acntModel.email" class="form-control" id="email" #email='ngModel'>
+            <input type="email" name="email" [(ngModel)]="acntModel.email" class="form-control" id="email" #email='ngModel' required>
           </div>
 
           <div class="form-group">
             <label for="pwd" style="width: 100%;">Password:<span class="float-right" ><a [routerLink]="['../resetPassword']" >Forget Password?</a></span></label>
-            <input type="password" name="password" [(ngModel)]="acntModel.password" class="form-control" id="pwd" #password='ngModel'>
+            <input type="password" name="password" [(ngModel)]="acntModel.password" class="form-control" id="pwd" #password='ngModel' required>
           </div>
 
           <div class="form-group form-check">

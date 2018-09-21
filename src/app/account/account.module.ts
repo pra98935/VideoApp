@@ -10,6 +10,7 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
 import { LandingComponent } from './landing/landing.component';
 
 import { AccountService } from '../services/account.service';
+import { AuthenticationService } from '../services/authentication.service';
 
 @NgModule({
   imports: [
@@ -20,6 +21,6 @@ import { AccountService } from '../services/account.service';
     
   ],
   declarations: [SignInComponent, SIgnUpComponent, ResetPasswordComponent, LandingComponent],
-  providers:[AccountService]
+  providers:[AccountService, AuthenticationService]
 })
 export class AccountModule { }

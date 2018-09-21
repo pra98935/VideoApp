@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { accountModel } from '../../model/account';
+import { AuthenticationService } from '../../services/authentication.service';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -10,10 +12,11 @@ export class SignInComponent implements OnInit {
 
   email;
   password;
+  getResponseData;
 
   acntModel:accountModel = new accountModel();
 
-  constructor() { }
+  constructor(private AccountService:AccountService) { }
 
   ngOnInit() {
     let getCookieEmail = this.getCookie('email');
@@ -26,16 +29,41 @@ export class SignInComponent implements OnInit {
   }
 
   public Login(){
-    
+    let self = this;
     this.email = this.acntModel.email;
     this.password = this.acntModel.password;
 
+    // Remember me 
     if(this.acntModel.rememberme==true){
       console.log('setCookie');
       let exdays = 365
       this.setCookie('email', this.email, exdays);
       this.setCookie('pass', this.password, exdays); 
     }
+
+    let data = [{
+      method:'login',
+      email_id:this.email,
+      password:this.password
+    }]
+
+    this.AccountService.userLogin(data).subscribe(
+      userData => {
+        //console.log(userData);
+        this.getResponseData = userData;
+        console.log(this.getResponseData.message);
+        console.log(this.getResponseData.status);
+        console.log(this.getResponseData.result.account_type);
+        console.log(this.getResponseData.result.email_id);
+        console.log(this.getResponseData.result.user_id);
+        
+      },
+      error => {
+        console.log('error');
+      }
+    );
+
+
 
   }
 
