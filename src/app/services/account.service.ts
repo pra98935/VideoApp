@@ -4,12 +4,14 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class AccountService {
 
   handleError: any;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private AuthenticationService:AuthenticationService, private router:Router) { }
 
   // userRegistration(data):Observable<object>{
   //   let body = data;
@@ -36,6 +38,12 @@ export class AccountService {
       return Response.json();
     })
     .catch(this.handleError);
+  }
+
+  userLogOut(){
+    this.AuthenticationService.loginUserData=null;
+    localStorage.clear();
+    this.router.navigate(['account/login']);
   }
 
 }

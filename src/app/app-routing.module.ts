@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
+import { MyGuardGuard } from './my-guard.guard';
 
 const routes: Routes = [
   {
@@ -14,7 +14,8 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren:'../app/home/home.module#HomeModule' 
+    loadChildren:'../app/home/home.module#HomeModule' ,
+    canActivate:[MyGuardGuard]
   }
 ];
 

@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MyGuardGuard } from './my-guard.guard';
+import { AuthenticationService } from './services/authentication.service';
+import { AccountService } from './services/account.service';
+import { HttpModule } from '@angular/http';
 
 
 @NgModule({
@@ -11,9 +15,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [MyGuardGuard, AuthenticationService, AccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

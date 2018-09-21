@@ -4,23 +4,25 @@ import { Injectable } from '@angular/core';
 export class AuthenticationService {
 
   constructor() { 
-    this.setLoginUserData();
+    //this.setLoginUserData();
   }
 
   
 
   loginUserData = {
-    method:'',
+    account_type:'',
     email_id:'',
-    password:''
+    user_id:''
   }
 
   setLoginUserData(){
+    alert('setloginuserdata');
     this.loginUserData = {
-      method:localStorage.getItem(''),
-      email_id:localStorage.getItem(''),
-      password:localStorage.getItem('')
+      account_type:localStorage.getItem('account_type'),
+      email_id:localStorage.getItem('email_id'),
+      user_id:localStorage.getItem('user_id')
     }
+    alert('l-'+this.loginUserData.email_id);
   }
 
 }
