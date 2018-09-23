@@ -46,4 +46,13 @@ export class AccountService {
     this.router.navigate(['account/login']);
   }
 
+  getUserProfile(data):Observable<object>{
+    let body = data;
+    return this.http.post('http://prashant.imdev.xyz/administrator/genral_apis/profile_apis.php', body)
+    .map(Response=>{
+      return Response.json();
+    })
+    .catch(this.handleError);
+  }
+
 }

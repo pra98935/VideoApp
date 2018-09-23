@@ -2,15 +2,15 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 topPanel">
-        Top Panel <button (click)="logout()">logout</button>
+        <app-top [sessionData]="loginUserData"></app-top>
       </div>
 
       <div class="bottomPanel">
         <div class="col-md-3 leftPanel">
-          Left Panel
+          <app-left></app-left>
         </div>
         <div class="col-md-9 rightPanel">
-          Right Panel
+          <app-right></app-right>
         </div>
       </div>
     </div>

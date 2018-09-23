@@ -13,6 +13,8 @@ import { RightComponent } from './right/right.component';
     CommonModule,
     HomeRoutingModule
   ],
-  declarations: [HomeComponent, LeftComponent, TopComponent, RightComponent]
+  declarations: [HomeComponent, LeftComponent, TopComponent, RightComponent],
+  providers:[]
+
 })
 export class HomeModule { }
