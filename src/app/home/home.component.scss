@@ -1,0 +1,19 @@
+.topPanel{
+    height: 65px;
+    background: #FBE5B6;
+}
+
+.bottomPanel{
+    height: calc(100vh - 65px);
+    display: flex;
+    width: 100%;
+    .leftPanel{
+        height: 100%;
+        background: #F7E8D1;
+    }
+    
+    .rightPanel{
+        height: 100%;
+        background: #D8C3AE;
+    }
+}

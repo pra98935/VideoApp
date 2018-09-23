@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { LeftComponent } from './left/left.component';
+import { TopComponent } from './top/top.component';
+import { RightComponent } from './right/right.component';
 
 
 @NgModule({
@@ -10,6 +13,6 @@ import { HomeComponent } from './home.component';
     CommonModule,
     HomeRoutingModule
   ],
-  declarations: [HomeComponent]
+  declarations: [HomeComponent, LeftComponent, TopComponent, RightComponent]
 })
 export class HomeModule { }
