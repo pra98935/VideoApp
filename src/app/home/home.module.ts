@@ -6,6 +6,7 @@ import { HomeComponent } from './home.component';
 import { LeftComponent } from './left/left.component';
 import { TopComponent } from './top/top.component';
 import { RightComponent } from './right/right.component';
+import { SharedService } from '../services/shared.service';
 
 
 @NgModule({
@@ -14,7 +15,7 @@ import { RightComponent } from './right/right.component';
     HomeRoutingModule
   ],
   declarations: [HomeComponent, LeftComponent, TopComponent, RightComponent],
-  providers:[]
+  providers:[SharedService]
 
 })
 export class HomeModule { }

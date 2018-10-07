@@ -7,6 +7,8 @@ import { MyGuardGuard } from './my-guard.guard';
 import { AuthenticationService } from './services/authentication.service';
 import { AccountService } from './services/account.service';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { SharedService } from './services/shared.service';
 
 
 @NgModule({
@@ -16,9 +18,10 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
-  providers: [MyGuardGuard, AuthenticationService, AccountService],
+  providers: [MyGuardGuard, AuthenticationService, AccountService, SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

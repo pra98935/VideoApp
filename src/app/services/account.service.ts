@@ -41,7 +41,6 @@ export class AccountService {
   }
 
   userLogOut(){
-    this.AuthenticationService.loginUserData=null;
     localStorage.clear();
     this.router.navigate(['account/login']);
   }

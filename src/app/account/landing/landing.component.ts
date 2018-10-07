@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-landing',
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LandingComponent implements OnInit {
 
+  imgPath = environment.assetsImgPath;
   constructor(private router: Router) { }
 
   ngOnInit() {

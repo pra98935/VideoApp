@@ -3,6 +3,7 @@ import { accountModel } from '../../model/account';
 import { AuthenticationService } from '../../services/authentication.service';
 import { AccountService } from '../../services/account.service';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-sign-in',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SignInComponent implements OnInit {
 
+  imgPath = environment.assetsImgPath;
   email;
   password;
   getResponseData;
