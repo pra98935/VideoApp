@@ -10,6 +10,7 @@ import { ISubscription } from '../../../../node_modules/rxjs/Subscription';
 export class LeftComponent implements OnInit {
   getCategoryListRes:ISubscription;
   getData;
+  getDataArray=[];
   constructor(private SharedService:SharedService) { }
 
   ngOnInit() {
@@ -20,11 +21,9 @@ export class LeftComponent implements OnInit {
     let self = this;
     let data = [{"method":"getAllCategory"}];
     this.getCategoryListRes = this.SharedService.getAllCategory(data).subscribe(
-      data=>{
-        if(data != null && data != undefined){
-          //console.log(data.result);
-          self.getData = data;
-          console.log(self.getData.result);
+      (data:any)=>{
+        if(data != null && data != undefined){          
+          this.getDataArray = data.result;
         }
       },
       error => {
